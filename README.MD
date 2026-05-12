@@ -26,11 +26,9 @@ O projeto simula o funcionamento de um **cardápio online moderno**, com interfa
 
 ---
 
-<<<<<<< HEAD
-📦 Fire-Burger-House
-=======
-# Estrutura do Projeto
+# 📂 Estrutura do Projeto
 
+```
 📦 FIRE BURGER HOUSE
 │
 ├── 📁 Admin
@@ -38,25 +36,16 @@ O projeto simula o funcionamento de um **cardápio online moderno**, com interfa
 │   ├── 📄 Dashboard.html
 │   ├── 📄 Pedidos.html
 │   └── 📄 Relatorio.html
->>>>>>> c46d89d4b9faf306776cc8219d8983286a65f97c
 │
-├── 📄 index.html
+├── 📁 Assets
+│   └── 📁 img
 │
-├── 📁 pages
-│   ├── 📄 cardapio.html
-│   ├── 📄 promocoes.html
-│   └── 📄 carrinho.html
-│
-├── 📁 css
-│   └── 📄 style.css
-│
-├── 📁 js
-│   └── 📄 script.js
-│
-├── 📁 images
-│   └── (imagens dos hambúrgueres)
-│
-└── 📄 README.md
+├── 📄 Cardapio.html
+├── 📄 Home.html
+├── 📄 Promocoes.html
+├── 📄 Home.css
+└── 📄 Home.js
+```
 
 ---
 
@@ -68,19 +57,21 @@ Esse painel representa como funcionaria a área utilizada pelos administradores 
 
 ### 📂 Páginas do Admin
 
-- **Login** → acesso ao painel administrativo  
-- **Dashboard** → visão geral do sistema  
-- **Pedidos** → página destinada à visualização de pedidos realizados  
-- **Relatório** → área de análise e estatísticas
+* **Login** → acesso ao painel administrativo
+* **Dashboard** → visão geral do sistema
+* **Pedidos** → visualização dos pedidos realizados
+* **Relatório** → área de análise e estatísticas
 
-### 🎯 Objetivo do Admin
+---
 
-O painel administrativo serve como base para futuras funcionalidades como:
+# 🎯 Objetivo do Admin
 
-- 📦 Gerenciamento de produtos
-- 🧾 Controle de pedidos
-- 📊 Relatórios de vendas
-- 👥 Controle de usuários administradores
+O painel administrativo serve como base para futuras funcionalidades, como:
+
+* 📦 Gerenciamento de produtos
+* 🧾 Controle de pedidos
+* 📊 Relatórios de vendas
+* 👥 Controle de usuários administradores
 
 Essa estrutura permite que o projeto evolua para um **sistema completo de gerenciamento de pedidos para restaurantes**.
 
@@ -88,10 +79,10 @@ Essa estrutura permite que o projeto evolua para um **sistema completo de gerenc
 
 # 🛒 Como Funciona
 
-1. O usuário acessa a página **Home**.  
-2. Pode navegar até o **Cardápio**.  
-3. Escolhe os produtos e adiciona ao **Carrinho**.  
-4. O sistema calcula automaticamente o **total do pedido**.
+1. O usuário acessa a página **Home**.
+2. Navega até o **Cardápio**.
+3. Escolhe os produtos e adiciona ao **Carrinho**.
+4. O sistema calcula automaticamente o **valor total do pedido**.
 
 ---
 
@@ -99,13 +90,13 @@ Essa estrutura permite que o projeto evolua para um **sistema completo de gerenc
 
 Algumas funcionalidades planejadas para evoluir o projeto:
 
-- 📱 Finalização de pedidos via **WhatsApp**
-- ❌ Remover itens individualmente do carrinho
-- 🔢 Contador de itens no carrinho
-- ⭐ Sistema de avaliações de clientes
-- 📊 Painel administrativo completo para gerenciar produtos
-- 📍 Informações de localização e horário da hamburgueria
-- 🎨 Melhorias de design e animações
+* 📱 Finalização de pedidos via **WhatsApp**
+* ❌ Remover itens individualmente do carrinho
+* 🔢 Contador de itens no carrinho
+* ⭐ Sistema de avaliações de clientes
+* 📊 Painel administrativo completo para gerenciar produtos
+* 📍 Informações de localização e horário da hamburgueria
+* 🎨 Melhorias de design e animações
 
 ---
 
@@ -113,9 +104,9 @@ Algumas funcionalidades planejadas para evoluir o projeto:
 
 Interface de cardápio digital com categorias como:
 
-- Hambúrgueres 🍔  
-- Batatas 🍟  
-- Bebidas 🥤  
+* Hambúrgueres 🍔
+* Batatas 🍟
+* Bebidas 🥤
 
 Cada item possui **imagem, preço e botão de pedido**, além de um **carrinho lateral** que mostra o total do pedido.
 
@@ -125,13 +116,13 @@ Cada item possui **imagem, preço e botão de pedido**, além de um **carrinho l
 
 **Allan Gustavo**
 
-Estudante de **Sistemas para Internet** e desenvolvedor em formação, interessado em desenvolvimento web e programação.
+Estudante de **Sistemas para Internet** e desenvolvedor em formação, interessado em **desenvolvimento web e programação**.
 
 📚 Atualmente estudando:
 
-- Estruturas de Dados  
-- Python  
-- Desenvolvimento Web  
+* Estruturas de Dados
+* Python
+* Desenvolvimento Web
 
 ---
 
