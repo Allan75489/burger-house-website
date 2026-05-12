@@ -1,4 +1,4 @@
-# 🔥 Fire Burge House
+# 🔥 Fire Burger House
 
 Sistema web de **cardápio digital para hamburgueria**, desenvolvido para permitir que clientes visualizem produtos, adicionem itens ao carrinho e realizem pedidos de forma simples.
 
@@ -8,21 +8,21 @@ O projeto simula o funcionamento de um **cardápio online moderno**, com interfa
 
 # 🍔 Funcionalidades
 
-- 📋 Visualização do cardápio com categorias
-- 🔥 Página de promoções
-- 🛒 Carrinho de pedidos
-- 💰 Cálculo automático do total
-- 🧭 Botões de navegação entre páginas
-- 🎨 Interface moderna com CSS
-- ⚙️ Estrutura de painel administrativo (Admin)
+* 📋 Visualização do cardápio com categorias
+* 🔥 Página de promoções
+* 🛒 Carrinho de pedidos
+* 💰 Cálculo automático do total
+* 🧭 Navegação entre páginas
+* 🎨 Interface moderna com CSS
+* ⚙️ Estrutura inicial de painel administrativo (Admin)
 
 ---
 
 # 🖥️ Tecnologias Utilizadas
 
-- **HTML5** – Estrutura das páginas  
-- **CSS3** – Estilização e layout responsivo  
-- **JavaScript** – Lógica do carrinho e interações  
+* **HTML5** – Estrutura das páginas
+* **CSS3** – Estilização e layout
+* **JavaScript** – Lógica do carrinho e interações
 
 ---
 
