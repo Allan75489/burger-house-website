@@ -122,4 +122,4 @@ Estudante de Sistemas para Internet | Desenvolvedor Web em formação
 
 ## 📄 Licença
 
-Projeto desenvolvido para fins **educacionais e de portfólio**.
+Este projeto está sob a licença **MIT**. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
