@@ -1,0 +1,204 @@
+/* =====================================================================
+   CARDAPIO.CSS — Estilos da página de cardápio: topo, categorias,
+   grid de produtos e painel fixo do carrinho.
+   ===================================================================== */
+
+/* ===== TOPO ===== */
+.topo {
+  text-align: center;
+  padding: 40px 20px;
+  background: var(--color-bg-black);
+}
+
+.topo h1 {
+  font-size: 32px;
+  letter-spacing: 2px;
+}
+
+/* ===== BARRA SUPERIOR ===== */
+.top-bar {
+  display: flex;
+  gap: 15px;
+  padding: 20px;
+  background: var(--color-bg);
+}
+
+.top-bar--cardapio {
+  margin-top: 80px;
+}
+
+.btn-nova-promocao {
+  background: var(--color-danger);
+  color: var(--color-text);
+  padding: 10px 18px;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-weight: bold;
+  transition: var(--transition-base);
+}
+
+.btn-nova-promocao:hover {
+  background: var(--color-danger-hover);
+}
+
+.btn-home {
+  background: var(--color-primary);
+  color: var(--color-text);
+  padding: 10px 18px;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* ===== CONTAINER PRINCIPAL ===== */
+.cardapio-container {
+  padding: 30px;
+  max-width: 1200px;
+  margin: auto;
+  padding-right: 320px; /* espaço reservado para o carrinho fixo */
+}
+
+/* ===== FILTROS DE CATEGORIA ===== */
+.filtros {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.filtro-btn {
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-weight: bold;
+  transition: var(--transition-base);
+}
+
+.filtro-btn:hover {
+  background: var(--color-accent);
+}
+
+.filtro-btn.active {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+/* ===== CATEGORIAS ===== */
+.categoria {
+  margin-bottom: 60px;
+}
+
+.categoria h2 {
+  margin-bottom: 25px;
+  color: var(--color-accent);
+  font-size: 24px;
+}
+
+/* ===== GRID DE PRODUTOS ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+/* ===== BOTÃO PEDIR (cards do cardápio) ===== */
+.botao {
+  background: var(--color-accent);
+  border: none;
+  padding: 10px;
+  color: var(--color-text);
+  border-radius: var(--radius-md);
+  font-weight: bold;
+  transition: var(--transition-base);
+}
+
+.botao:hover {
+  background: #ff5c2a;
+}
+
+/* ===== PAINEL DO CARRINHO (fixo, lateral) ===== */
+.carrinho-painel {
+  position: fixed;
+  right: 30px;
+  top: 200px;
+  width: 260px;
+  background: var(--color-bg-black);
+  border: 2px solid var(--color-accent);
+  border-radius: var(--radius-lg);
+  padding: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+.carrinho-painel h3 {
+  margin-top: 0;
+  color: var(--color-accent);
+}
+
+.carrinho-painel ul {
+  max-height: 160px;
+  overflow-y: auto;
+  font-size: 14px;
+}
+
+.carrinho-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  gap: 8px;
+}
+
+.carrinho-item .remover-item {
+  background: var(--color-accent);
+  border: none;
+  color: var(--color-text);
+  border-radius: var(--radius-sm);
+  padding: 2px 6px;
+  flex-shrink: 0;
+}
+
+.carrinho-total {
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.carrinho-painel button.botao {
+  width: 100%;
+  margin-top: 5px;
+}
+
+.btn-finalizar-pedido {
+  margin-top: 8px;
+}
+
+.carrinho-vazio {
+  font-size: 13px;
+  color: var(--color-text-faint);
+  padding: 8px 0;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 1100px) {
+  .cardapio-container {
+    padding-right: 30px;
+  }
+
+  .carrinho-painel {
+    position: static;
+    width: 100%;
+    margin: 30px auto 0;
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 600px) {
+  .top-bar {
+    flex-direction: column;
+  }
+
+  .topo h1 {
+    font-size: 24px;
+  }
+}

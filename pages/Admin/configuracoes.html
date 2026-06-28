@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações | Sistema Administrativo</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/global.css">
+    <link rel="stylesheet" href="../../assets/css/admin.css">
+</head>
+
+<body class="admin-page" data-active="configuracoes">
+
+    <div id="sidebar-placeholder"></div>
+
+    <main class="main-content">
+
+        <header class="main-header">
+            <h2>Configurações do Sistema</h2>
+        </header>
+
+        <section class="settings-section">
+
+            <!-- Informações da Loja -->
+            <form class="settings-card" onsubmit="return false;">
+                <h3>
+                    <span class="material-icons">store</span>
+                    Informações da Loja
+                </h3>
+
+                <div class="form-group">
+                    <label for="store-name">Nome da Loja</label>
+                    <input id="store-name" type="text" value="Fire Burger House">
+                </div>
+
+                <div class="form-group">
+                    <label for="store-email">Email de Contato</label>
+                    <input id="store-email" type="email" value="contato@fireburgerhouse.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="store-phone">Telefone</label>
+                    <input id="store-phone" type="tel" value="(83) 99199-8747">
+                </div>
+
+                <button type="submit">Salvar Alterações</button>
+            </form>
+
+            <!-- Conta do Usuário -->
+            <form class="settings-card" onsubmit="return false;">
+                <h3>
+                    <span class="material-icons">person</span>
+                    Conta do Usuário
+                </h3>
+
+                <div class="form-group">
+                    <label for="user-name">Nome</label>
+                    <input id="user-name" type="text" value="Allan Gustavo">
+                </div>
+
+                <div class="form-group">
+                    <label for="user-password">Nova Senha</label>
+                    <input id="user-password" type="password">
+                </div>
+
+                <div class="form-group">
+                    <label for="user-password-confirm">Confirmar Senha</label>
+                    <input id="user-password-confirm" type="password">
+                </div>
+
+                <button type="submit">Atualizar Conta</button>
+            </form>
+
+            <!-- Preferências -->
+            <form class="settings-card" onsubmit="return false;">
+                <h3>
+                    <span class="material-icons">tune</span>
+                    Preferências do Sistema
+                </h3>
+
+                <div class="form-group">
+                    <label for="theme">Tema</label>
+                    <select id="theme">
+                        <option value="light">Claro</option>
+                        <option value="dark">Escuro</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="notifications">Notificações</label>
+                    <select id="notifications">
+                        <option value="on">Ativadas</option>
+                        <option value="off">Desativadas</option>
+                    </select>
+                </div>
+
+                <button type="submit">Salvar Preferências</button>
+            </form>
+
+        </section>
+    </main>
+
+    <footer class="admin-footer">
+        <p>&copy; 2026 Fire Burger House. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="../../assets/js/utils.js"></script>
+    <script src="../../assets/js/main.js"></script>
+
+</body>
+</html>

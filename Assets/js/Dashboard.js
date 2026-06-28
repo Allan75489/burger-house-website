@@ -1,70 +1,63 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const links = document.querySelectorAll(".menu-link");
-    const conteudo = document.getElementById("conteudo");
+  /* =====================================================================
+    DASHBOARD.JS — Responsável por: gráficos, estatísticas e indicadores
+    exibidos em pages/admin/dashboard.html e pages/admin/relatorios.html.
+    Depende da biblioteca externa Chart.js (carregada via CDN no HTML).
+    ===================================================================== */
 
-    // Guarda o HTML original do Dashboard
-    const dashboardOriginal = conteudo.innerHTML;
+  /** Renderiza o gráfico de vendas dos últimos 7 dias (Dashboard). */
+  function renderizarGraficoVendasSemanais() {
+    const canvas = document.getElementById("salesChart");
+    if (!canvas) return;
 
-    links.forEach(link => {
-        link.addEventListener("click", (e) => {
-            e.preventDefault();
-
-            // Ativa menu
-            links.forEach(l => l.classList.remove("active"));
-            link.classList.add("active");
-
-            // Se for Dashboard → restaura conteúdo original
-            if (link.dataset.dashboard === "true") {
-                conteudo.innerHTML = dashboardOriginal;
-                reiniciarGrafico();
-                return;
-            }
-
-            // Carrega outras páginas
-            const pagina = link.dataset.page;
-            if (pagina) {
-                fetch(pagina)
-                    .then(res => res.text())
-                    .then(html => {
-                        const parser = new DOMParser();
-                        const doc = parser.parseFromString(html, "text/html");
-                        const novoConteudo = doc.querySelector(".main-content");
-
-                        conteudo.innerHTML = novoConteudo
-                            ? novoConteudo.innerHTML
-                            : "<p>Erro ao carregar conteúdo.</p>";
-                    })
-                    .catch(() => {
-                        conteudo.innerHTML = "<p>Erro ao carregar a página.</p>";
-                    });
-            }
-        });
+    new Chart(canvas, {
+      type: "line",
+      data: {
+        labels: ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"],
+        datasets: [
+          {
+            label: "Vendas (R$)",
+            data: [1200, 1900, 3000, 2500, 4200, 5100, 4800],
+            borderWidth: 3,
+            tension: 0.4,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: true },
+        },
+      },
     });
+  }
 
-    // Recria o gráfico ao voltar pro dashboard
-    function reiniciarGrafico() {
-        const canvas = document.getElementById("salesChart");
-        if (!canvas) return;
+  /** Renderiza o gráfico de faturamento mensal (Relatórios). */
+  function renderizarGraficoFaturamentoMensal() {
+    const canvas = document.getElementById("monthlyChart");
+    if (!canvas) return;
 
-        const ctx = canvas.getContext("2d");
+    new Chart(canvas, {
+      type: "bar",
+      data: {
+        labels: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun"],
+        datasets: [
+          {
+            label: "Faturamento (R$)",
+            data: [7200, 8100, 9000, 8700, 9400, 10500],
+            borderWidth: 1,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: true },
+        },
+      },
+    });
+  }
 
-        new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
-                datasets: [{
-                    label: 'Vendas (R$)',
-                    data: [1200, 1900, 3000, 2500, 4200, 5100, 4800],
-                    borderWidth: 3,
-                    tension: 0.4
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: { display: true }
-                }
-            }
-        });
-    }
-});
+  document.addEventListener("DOMContentLoaded", () => {
+    renderizarGraficoVendasSemanais();
+    renderizarGraficoFaturamentoMensal();
+  });

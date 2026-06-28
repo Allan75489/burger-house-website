@@ -1,507 +1,59 @@
-    <!DOCTYPE html>
-    <html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Cardápio - Fire Burge House</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio - Fire Burger House</title>
 
-        <style>
-            /* RESET */
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
+    <link rel="stylesheet" href="../assets/css/global.css">
+    <link rel="stylesheet" href="../assets/css/cardapio.css">
+</head>
 
-            /* BODY */
-            body {
-                font-family: Arial, Helvetica, sans-serif;
-                background: #111;
-                color: white;
-            }
+<body data-active="cardapio">
 
-            /* TOPO */
-            .topo {
-                text-align: center;
-                padding: 40px 20px;
-                background: #000;
-            }
+    <div id="navbar-placeholder"></div>
 
-            .topo h1 {
-                font-size: 32px;
-                letter-spacing: 2px;
-            }
+    <div class="top-bar top-bar--cardapio">
+        <a href="promocoes.html" class="btn-nova-promocao">➕ Promoções da Semana</a>
+        <a href="home.html" class="btn-home">🏠 Home</a>
+    </div>
 
-            /* BARRA SUPERIOR */
-            .top-bar {
-                display: flex;
-                gap: 15px;
-                padding: 20px;
-                background: #111;
-            }
+    <div id="header-placeholder" data-subtitle="Nosso Cardápio"></div>
 
-            /* BOTÕES */
-            .btn-nova-promocao {
-                background: #e60000;
-                color: white;
-                padding: 10px 18px;
-                border-radius: 10px;
-                text-decoration: none;
-                font-weight: bold;
-                transition: .3s;
-            }
-
-            .btn-nova-promocao:hover {
-                background: #b80000;
-            }
-
-            .btn-home {
-                background: #ff4d00;
-                color: white;
-                padding: 10px 18px;
-                border-radius: 10px;
-                text-decoration: none;
-                font-weight: bold;
-            }
-
-            /* CONTAINER */
-            .container {
-                padding: 30px;
-                max-width: 1200px;
-                margin: auto;
-                padding-right: 320px;
-                /* espaço pro carrinho */
-            }
-
-            /* CATEGORIAS */
-            .categoria {
-                margin-bottom: 60px;
-            }
-
-            .categoria h2 {
-                margin-bottom: 25px;
-                color: #ff3c00;
-                font-size: 24px;
-            }
-
-            /* GRID DE PRODUTOS */
-            .grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 25px;
-            }
-
-            /* CARD */
-            .card {
-                background: #1b1b1b;
-                border-radius: 12px;
-                padding: 15px;
-                text-align: center;
-                transition: .3s;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-            }
-
-            .card:hover {
-                transform: scale(1.05);
-            }
-
-            /* IMAGEM */
-            .card img {
-                width: 100%;
-                height: 170px;
-                object-fit: cover;
-                border-radius: 10px;
-                background: #333;
-            }
-
-            /* TITULO */
-            .card h3 {
-                margin-top: 10px;
-            }
-
-            /* PREÇO */
-            .preco {
-                display: block;
-                margin: 10px 0;
-                color: #ff3c00;
-                font-weight: bold;
-                font-size: 18px;
-            }
-
-            /* BOTÃO PEDIR */
-            .botao {
-                background: #ff3c00;
-                border: none;
-                padding: 10px;
-                color: white;
-                border-radius: 8px;
-                cursor: pointer;
-                font-weight: bold;
-                transition: .3s;
-            }
-
-            .botao:hover {
-                background: #ff5c2a;
-            }
-
-            /* CARRINHO */
-            .carrinho {
-                position: fixed;
-                right: 30px;
-                top: 200px;
-                width: 260px;
-                background: #000;
-                border: 2px solid #ff3c00;
-                border-radius: 12px;
-                padding: 15px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, .6);
-            }
-
-            .carrinho h3 {
-                margin-top: 0;
-                color: #ff3c00;
-            }
-
-            /* LISTA DO CARRINHO */
-            .carrinho ul {
-                max-height: 160px;
-                overflow-y: auto;
-                padding-left: 18px;
-                font-size: 14px;
-            }
-
-            /* TOTAL */
-            .total {
-                font-weight: bold;
-                margin: 10px 0;
-            }
-
-            /* BOTÕES DO CARRINHO */
-            .carrinho button {
-                width: 100%;
-                margin-top: 5px;
-                padding: 8px;
-                border: none;
-                border-radius: 8px;
-                font-weight: bold;
-                cursor: pointer;
-            }
-
-            .btn-limpar {
-                background: #ff3c00;
-                color: white;
-            }
-
-            .btn-finalizar {
-                background: #ff6a00;
-                color: white;
-            }
-        </style>
-    </head>
-
-    <body>
-        <div class="top-bar">
-
-            <a href="promocoes.html" onclick="adicionarCard()" class="btn-nova-promocao">
-                ➕ Promoções da Semana
-            </a>
-
-            <a href="Home.html" class="btn-home">
-                🏠 Home
-            </a>
-
+    <!-- FILTROS DE CATEGORIA -->
+    <div class="container">
+        <div class="filtros">
+            <button class="filtro-btn active" type="button" data-categoria="todos">Todos</button>
+            <button class="filtro-btn" type="button" data-categoria="hamburguer">🍔 Hambúrgueres</button>
+            <button class="filtro-btn" type="button" data-categoria="batata">🍟 Batatas</button>
+            <button class="filtro-btn" type="button" data-categoria="bebida">🥤 Bebidas</button>
+            <button class="filtro-btn" type="button" data-categoria="sobremesa">🍨 Sobremesas</button>
         </div>
-        <header class="topo">
-            <h1>🔥 FIRE BURGE HOUSE</h1>
-            <p>Nosso Cardápio</p>
-        </header>
+    </div>
 
-        <main class="container">
+    <main class="cardapio-container">
+        <!-- As categorias e produtos são renderizados dinamicamente por produtos.js -->
+        <div id="categorias-cardapio"></div>
+    </main>
 
-            <!-- 🍔 HAMBURGUERES -->
-            <section class="categoria">
-                <h2>🍔 Hambúrgueres</h2>
+    <!-- CARRINHO -->
+    <aside id="carrinho" class="carrinho-painel">
+        <h3>🛒 Seu Pedido</h3>
+        <ul id="lista-carrinho"></ul>
+        <p class="carrinho-total">Total: R$ <span id="total-carrinho">0,00</span></p>
+        <button id="btn-limpar-carrinho" class="botao" type="button">Limpar</button>
+        <button id="btn-finalizar-pedido" class="botao btn-finalizar-pedido" type="button">
+            Finalizar Pedido
+        </button>
+    </aside>
 
-                <div class="grid">
+    <div id="footer-placeholder"></div>
 
-                    <div class="card">
-                        <img src="../img/public/Hamburge/Clássico da Casa.avif" alt="Classico da casa">
-                        <h3>Clássico da Casa</h3>
-                        <span class="preco">R$ 24,90</span>
-                        <button class="botao" onclick="adicionarCarrinho('Clássico da Casa', 24.90)">
-                            Pedir
-                        </button>
-                    </div>
+    <script src="../assets/js/utils.js"></script>
+    <script src="../assets/js/carrinho.js"></script>
+    <script src="../assets/js/produtos.js"></script>
+    <script src="../assets/js/main.js"></script>
 
-                    <div class="card">
-                        <img src="../img/public/Hamburge/Bacon Supreme.webp" alt="Bacon Supreme">
-                        <h3>Bacon Supreme</h3>
-                        <span class="preco">R$ 29,90</span>
-                        <button class="botao" onclick="adicionarCarrinho('Bacon Supreme', 29.90)">
-                            Pedir
-                        </button>
-                    </div>
-
-                    <div class="card">
-                        <img src="../img/public/Hamburge/Duplo Bacon.jpeg" alt="Duplo Bacon">
-                        <h3>Duplo Bacon</h3>
-                        <span class="preco">R$ 34,90</span>
-                        <button class="botao" onclick="adicionarCarrinho('Duplo Bacon', 34.90)">
-                            Pedir
-                        </button>
-                    </div>
-
-                    <div class="card">
-                        <img src="../img/public/Hamburge/Chicken burger.avif" alt="Chicken burger">
-                        <h3>Chicken Burger</h3>
-                        <span class="preco">R$ 27,90</span>
-                        <button class="botao" onclick="adicionarCarrinho('Chicken Burger', 27.90)">
-                            Pedir
-                        </button>
-                    </div>"
-
-                </div>
-            </section>
-
-            <!-- 🍟 BATATAS -->
-            <section class="categoria">
-                <h2>🍟 Batatas</h2>
-
-                <div class="grid">
-
-                    <div class="card">
-                        <img src="../img/public/Batata Frita/Batata Tradicional.jpg" alt="Batata Tradicional">
-                        <h3>Batata Tradicional</h3>
-                        <span class="preco">R$ 14,90</span>
-                        <button class="botao" onclick="adicionarCarrinho('Batata Tradicional', 14.90)">
-                            Pedir
-                        </button>
-                    </div>
-
-                    <div class="card">
-                        <img src="../img/public/Batata Frita/Batata Rustica.jpg" alt="Batata Rustica">
-                        <h3>Batata Rustica</h3>
-                        <span class="preco">R$ 16,90</span>
-                        <button class="botao" onclick="adicionarCarrinho('Batata Rustica', 16.90)">
-                            Pedir
-                        </button>
-                    </div>
-
-                    <div class="card">
-                        <img src="../img/public/Batata Frita/Batata Smile.jpg" alt="Batata Smile">
-                        <h3>Batata Smile</h3>
-                        <span class="preco">R$ 18,90</span>
-                        <button class="botao" onclick="adicionarCarrinho('Batata Smile', 18.90)">
-                            Pedir
-                        </button>
-                    </div>
-
-                    <div class="card">
-                        <img src="../img/public/Batata Frita/Batata Cheddar.jpg" alt="Batata Cheddar">
-                        <h3>Batata Cheddar</h3>
-                        <span class="preco">R$ 19,90</span>
-                        <button class="botao" onclick="adicionarCarrinho('Batata Cheddar', 19.90)">
-                            Pedir
-                        </button>
-                    </div>
-
-                </div>
-            </section>
-
-            <!-- 🥤 BEBIDAS -->
-
-            <section class="categoria">
-                <h2>🥤 Bebidas</h2>
-
-                <div class="grid">
-
-                    <div class="card">
-                        <img src="../img/public/Bebida/Fanta Laranja 350ml.webp" alt="Fanta Laranja 350ml">
-                        <h3>Fanta Laranja</h3>
-                        <span class="preco">R$ 6,00</span>
-                        <button class="botao" onclick="adicionarCarrinho('Fanta Laranja', 6.00)">
-                            Pedir
-                        </button>
-                    </div>
-
-                    <div class="card">
-                        <img src="../img/public/Bebida/Guaraná Lata 350ml.webp" alt="Guaraná Antártica Lata 350ml">
-                        <h3>Guaraná Antártica</h3>
-                        <span class="preco">R$ 6,00</span>
-                        <button class="botao" onclick="adicionarCarrinho('Guaraná Antártica', 6.00)">
-                            Pedir
-                        </button>
-                    </div>
-
-                    <div class="card">
-                        <img src="../img/public/Bebida/Agua 500ml.webp" alt="Água Mineral">
-                        <h3>Água Mineral</h3>
-                        <span class="preco">R$ 4,00</span>
-                        <button class="botao" onclick="adicionarCarrinho('Água Mineral', 4.00)">
-                            Pedir
-                        </button>
-                    </div>
-
-                    <div class="card">
-                        <img src="../img/public/Bebida/Coca-Cola Lata 350.webp" alt="Coca-Cola Lata 350ml">
-                        <h3>Coca-Cola Lata 350ml</h3>
-                        <span class="preco">R$ 6,49</span>
-                        <button class="botao" onclick="adicionarCarrinho('Coca-Cola Lata 350ml', 6.49)">
-                            Pedir
-                        </button>
-                    </div>
-
-                </div>
-            </section>
-
-            <!--🍨 SOBREMESAS -->
-
-            <section class="categoria">
-                <h2>🍨 Sobremesas</h2>
-
-                <div class="grid">
-
-                    <div class="card">
-                        <img src="../img/public/Sobremesa/Milk shake Chocolate.webp" alt="Milk Shake Chocolate">
-                        <h3>Milk Shake Chocolate</h3>
-                        <span class="preco">R$ 9,90</span>
-                        <button class="botao" onclick="adicionarCarrinho('Milk Shake Chocolate', 9.90)">
-                            Pedir
-                        </button>
-                    </div>
-
-                    <div class="card">
-                        <img src="../img/public/Sobremesa/Milk shake ovomaltine.jfif" alt="Milk Shake Ovomaltine">
-                        <h3>Milk Shake Ovomaltine</h3>
-                        <span class="preco">R$ 15,90</span>
-                        <button class="botao" onclick="adicionarCarrinho('Milk Shake Ovomaltine', 15.90)">
-                            Pedir
-                        </button>
-                    </div>
-
-                    <div class="card">
-                        <img src="../img/public/Sobremesa/Milk shake Oreo.webp" alt="milk shake Oreo">
-                        <h3>Milk Shake Oreo</h3>
-                        <span class="preco">R$ 16,90</span>
-                        <button class="botao" onclick="adicionarCarrinho('Milk Shake Oreo', 16.90)">
-                            Pedir
-                        </button>
-                    </div>
-
-                </div>
-            </section>
-        </main>
-
-        <!-- 🛒 CARRINHO -->
-        <div id="carrinho" class="carrinho">
-            <h3>🛒 Seu Pedido</h3>
-            <ul id="lista-carrinho"></ul>
-            <p class="total">Total: R$ <span id="total">0.00</span></p>
-            <button onclick="limparCarrinho()" class="botao">Limpar</button>
-            <button onclick="finalizarWhatsApp()" class="botao" style="width:100%; margin-top:8px;">
-                Finalizar Pedido
-            </button>
-        </div>
-        <!-- 🔥 JAVASCRIPT DO CARRINHO COM QUANTIDADE -->
-        <script>
-            let carrinho = [];
-            let total = 0;
-
-            // adicionar produto
-            function adicionarCarrinho(nome, preco) {
-                const precoNumero = parseFloat(preco);
-
-                // procura se já existe
-                const itemExistente = carrinho.find(item => item.nome === nome);
-
-                if (itemExistente) {
-                    itemExistente.quantidade++;
-                } else {
-                    carrinho.push({
-                        nome: nome,
-                        preco: precoNumero,
-                        quantidade: 1
-                    });
-                }
-
-                total += precoNumero;
-                atualizarCarrinho();
-            }
-
-            // atualizar carrinho
-            function atualizarCarrinho() {
-                const lista = document.getElementById("lista-carrinho");
-                const totalSpan = document.getElementById("total");
-
-                lista.innerHTML = "";
-
-                carrinho.forEach((item, index) => {
-                    lista.innerHTML += `
-        <li style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
-            <span>
-            ${item.nome} x${item.quantidade} — 
-            R$ ${(item.preco * item.quantidade).toFixed(2)}
-            </span>
-
-            <button onclick="removerItem(${index})"
-                    style="background:#ff3c00;border:none;color:white;border-radius:6px;padding:2px 6px;cursor:pointer;">
-            ❌
-            </button>
-        </li>
-        `;
-                });
-
-                totalSpan.textContent = total.toFixed(2);
-            }
-
-            // remover item
-            function removerItem(index) {
-                const item = carrinho[index];
-
-                total -= item.preco;
-
-                if (item.quantidade > 1) {
-                    item.quantidade--;
-                } else {
-                    carrinho.splice(index, 1);
-                }
-
-                atualizarCarrinho();
-            }
-
-            // limpar carrinho
-            function limparCarrinho() {
-                carrinho = [];
-                total = 0;
-                atualizarCarrinho();
-            }
-
-            function finalizarWhatsApp() {
-                if (carrinho.length === 0) {
-                    alert("Seu carrinho está vazio!");
-                    return;
-                }
-
-                let mensagem = "🍔 *Pedido - Fire Burge House*%0A%0A";
-
-                carrinho.forEach(item => {
-                    mensagem += `• ${item.nome} x${item.quantidade} — R$ ${(item.preco * item.quantidade).toFixed(2)}%0A`;
-                });
-
-                mensagem += `%0A💰 *Total: R$ ${total.toFixed(2)}*`;
-
-                // ⚠️ TROQUE PELO SEU NÚMERO
-                const telefone = "(83) 99199-8747";
-
-                const url = `https://web.whatsapp.com/${telefone}?text=${mensagem}`;
-
-                window.open(url, "_blank");
-            }
-        </script>
-
-    </body>
-
-    </html>
+</body>
+</html>

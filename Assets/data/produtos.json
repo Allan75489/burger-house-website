@@ -1,0 +1,130 @@
+[
+  {
+    "id": 1,
+    "nome": "Clássico da Casa",
+    "descricao": "Pão brioche, carne 180g, queijo cheddar e molho especial.",
+    "preco": 24.90,
+    "categoria": "hamburguer",
+    "imagem": "assets/img/hamburguer/classico-da-casa.avif"
+  },
+  {
+    "id": 2,
+    "nome": "Bacon Supreme",
+    "descricao": "Hambúrguer artesanal, bacon crocante e cheddar cremoso.",
+    "preco": 29.90,
+    "categoria": "hamburguer",
+    "imagem": "assets/img/hamburguer/bacon-supreme.webp"
+  },
+  {
+    "id": 3,
+    "nome": "Duplo Bacon",
+    "descricao": "Dois hambúrgueres, cheddar, bacon crocante e molho BBQ.",
+    "preco": 34.90,
+    "categoria": "hamburguer",
+    "imagem": "assets/img/hamburguer/duplo-bacon.jpeg"
+  },
+  {
+    "id": 4,
+    "nome": "Chicken Burger",
+    "descricao": "Filé de frango empanado, alface e maionese da casa.",
+    "preco": 27.90,
+    "categoria": "hamburguer",
+    "imagem": "assets/img/hamburguer/chicken-burger.avif"
+  },
+  {
+    "id": 5,
+    "nome": "Batata Tradicional",
+    "descricao": "Porção de batata frita crocante temperada na hora.",
+    "preco": 14.90,
+    "categoria": "batata",
+    "imagem": "assets/img/batata/batata-tradicional.jpg"
+  },
+  {
+    "id": 6,
+    "nome": "Batata Rústica",
+    "descricao": "Batata rústica com casca, temperos especiais e ervas.",
+    "preco": 16.90,
+    "categoria": "batata",
+    "imagem": "assets/img/batata/batata-rustica.jpg"
+  },
+  {
+    "id": 7,
+    "nome": "Batata Smile",
+    "descricao": "Batata carinha sorridente, crocante por fora e macia por dentro.",
+    "preco": 18.90,
+    "categoria": "batata",
+    "imagem": "assets/img/batata/batata-smile.jpg"
+  },
+  {
+    "id": 8,
+    "nome": "Batata Cheddar",
+    "descricao": "Batata frita coberta com molho cheddar cremoso.",
+    "preco": 19.90,
+    "categoria": "batata",
+    "imagem": "assets/img/batata/batata-cheddar.jpg"
+  },
+  {
+    "id": 9,
+    "nome": "Fanta Laranja",
+    "descricao": "Lata 350ml gelada.",
+    "preco": 6.00,
+    "categoria": "bebida",
+    "imagem": "assets/img/bebida/fanta-laranja-350ml.webp"
+  },
+  {
+    "id": 10,
+    "nome": "Guaraná Antártica",
+    "descricao": "Lata 350ml gelada.",
+    "preco": 6.00,
+    "categoria": "bebida",
+    "imagem": "assets/img/bebida/guarana-lata-350ml.webp"
+  },
+  {
+    "id": 11,
+    "nome": "Água Mineral",
+    "descricao": "Garrafa 500ml.",
+    "preco": 4.00,
+    "categoria": "bebida",
+    "imagem": "assets/img/bebida/agua-mineral-500ml.webp"
+  },
+  {
+    "id": 12,
+    "nome": "Coca-Cola Lata 350ml",
+    "descricao": "Lata 350ml gelada.",
+    "preco": 6.49,
+    "categoria": "bebida",
+    "imagem": "assets/img/bebida/coca-cola-lata-350ml.webp"
+  },
+  {
+    "id": 13,
+    "nome": "Sprite",
+    "descricao": "Lata 350ml gelada.",
+    "preco": 6.00,
+    "categoria": "bebida",
+    "imagem": "assets/img/bebida/sprite-350ml.jpg"
+  },
+  {
+    "id": 14,
+    "nome": "Milk Shake Chocolate",
+    "descricao": "Milk shake cremoso de chocolate.",
+    "preco": 9.90,
+    "categoria": "sobremesa",
+    "imagem": "assets/img/sobremesa/milkshake-chocolate.webp"
+  },
+  {
+    "id": 15,
+    "nome": "Milk Shake Ovomaltine",
+    "descricao": "Milk shake cremoso com Ovomaltine.",
+    "preco": 15.90,
+    "categoria": "sobremesa",
+    "imagem": "assets/img/sobremesa/milkshake-ovomaltine.jfif"
+  },
+  {
+    "id": 16,
+    "nome": "Milk Shake Oreo",
+    "descricao": "Milk shake cremoso com biscoito Oreo.",
+    "preco": 16.90,
+    "categoria": "sobremesa",
+    "imagem": "assets/img/sobremesa/milkshake-oreo.webp"
+  }
+]

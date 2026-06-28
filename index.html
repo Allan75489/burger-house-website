@@ -6,565 +6,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fire Burger House — Login</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Arial, sans-serif;
-        }
-
-        body {
-            background: #0f172a;
-            min-height: 100vh;
-        }
-
-        .login-container {
-            display: flex;
-            min-height: 100vh;
-        }
-
-        /* ===== LADO ESQUERDO ===== */
-        .login-left {
-            width: 50%;
-            background: linear-gradient(180deg, #1f2a40, #0f172a);
-            color: #fff;
-            padding: 50px 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .welcome-title {
-            font-size: 32px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .welcome-sub {
-            margin-top: 10px;
-            color: #9ca3af;
-            font-size: 15px;
-        }
-
-        .login-image {
-            width: 100%;
-            height: 280px;
-            object-fit: cover;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-        }
-
-        .social-media {
-            display: flex;
-            gap: 15px;
-        }
-
-        .social-icon {
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            background: #273449;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            text-decoration: none;
-            transition: .2s;
-        }
-
-        .social-icon:hover {
-            background: #ff2b2b;
-        }
-
-        .footer-note {
-            font-size: 13px;
-            opacity: 0.7;
-            margin-top: 14px;
-        }
-
-        /* ===== LADO DIREITO ===== */
-        .login-right {
-            width: 50%;
-            background: #111827;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 40px 20px;
-        }
-
-        .login-form-container {
-            width: 100%;
-            max-width: 420px;
-            background: #1f2937;
-            padding: 40px;
-            border-radius: 18px;
-            color: #fff;
-            border: 1px solid #273449;
-        }
-
-        .company-logo {
-            text-align: center;
-            margin-bottom: 22px;
-        }
-
-        .company-logo img {
-            max-width: 130px;
-        }
-
-        .login-title {
-            text-align: center;
-            font-size: 24px;
-            margin-bottom: 6px;
-        }
-
-        .login-subtitle {
-            text-align: center;
-            font-size: 13px;
-            color: #9ca3af;
-            margin-bottom: 28px;
-        }
-
-        /* ===== ABAS ===== */
-        .tabs {
-            display: flex;
-            margin-bottom: 28px;
-            border-radius: 10px;
-            overflow: hidden;
-            border: 1px solid #273449;
-        }
-
-        .tab-btn {
-            flex: 1;
-            padding: 11px;
-            background: transparent;
-            border: none;
-            color: #9ca3af;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: .2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 7px;
-        }
-
-        .tab-btn.active {
-            background: linear-gradient(135deg, #ff2b2b, #b30000);
-            color: #fff;
-        }
-
-        .tab-btn:not(.active):hover {
-            background: #273449;
-            color: #fff;
-        }
-
-        /* ===== INPUTS ===== */
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .input-wrap {
-            position: relative;
-        }
-
-        .input-wrap label {
-            position: absolute;
-            top: -9px;
-            left: 12px;
-            background: #1f2937;
-            padding: 0 6px;
-            font-size: 12px;
-            color: #ff2b2b;
-            font-weight: 600;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 14px 42px 14px 14px;
-            border-radius: 10px;
-            border: 1px solid #273449;
-            background: #111827;
-            color: #fff;
-            font-size: 15px;
-            outline: none;
-            transition: border-color .2s;
-        }
-
-        .form-input:focus {
-            border-color: #ff2b2b;
-        }
-
-        .input-icon {
-            position: absolute;
-            right: 13px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #9ca3af;
-            font-size: 15px;
-            pointer-events: none;
-        }
-
-        .password-toggle {
-            position: absolute;
-            right: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            color: #9ca3af;
-            cursor: pointer;
-            font-size: 15px;
-            padding: 0;
-        }
-
-        /* ===== LEMBRAR ===== */
-        .remember-row {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 22px;
-            color: #d1d5db;
-            font-size: 14px;
-        }
-
-        /* ===== BOTÃO ===== */
-        .btn-login {
-            width: 100%;
-            padding: 14px;
-            background: linear-gradient(135deg, #ff2b2b, #b30000);
-            border: none;
-            border-radius: 12px;
-            color: #fff;
-            font-size: 16px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: .2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .btn-login:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(255, 43, 43, 0.3);
-        }
-
-        /* ===== HINT CREDENCIAIS ===== */
-        .credentials-hint {
-            margin-top: 18px;
-            padding: 12px 14px;
-            border-radius: 10px;
-            font-size: 13px;
-            border: 1px solid;
-            display: none;
-            line-height: 1.6;
-        }
-
-        .credentials-hint.admin-hint {
-            background: rgba(255, 43, 43, 0.08);
-            border-color: #ff2b2b44;
-            color: #fca5a5;
-        }
-
-        .credentials-hint.user-hint {
-            background: rgba(59, 130, 246, 0.08);
-            border-color: #3b82f644;
-            color: #93c5fd;
-        }
-
-        .credentials-hint strong {
-            display: block;
-            margin-bottom: 4px;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: .5px;
-            opacity: .7;
-        }
-
-        /* ===== TOAST ===== */
-        .toast {
-            position: fixed;
-            top: 22px;
-            right: 22px;
-            padding: 14px 20px;
-            border-radius: 12px;
-            color: #fff;
-            font-size: 15px;
-            font-weight: 600;
-            z-index: 999;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
-            animation: slideIn .3s ease;
-        }
-
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateX(40px); }
-            to   { opacity: 1; transform: translateX(0); }
-        }
-
-        .toast.success { background: #16a34a; }
-        .toast.error   { background: #dc2626; }
-
-        /* ===== RESPONSIVO ===== */
-        @media (max-width: 900px) {
-            .login-left  { display: none; }
-            .login-right { width: 100%; }
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css">
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/admin.css">
 </head>
 
-<body>
+<body class="login-page">
 
-<div class="login-container">
+    <div class="login-container">
 
-    <!-- LADO ESQUERDO -->
-    <div class="login-left">
-        <div>
-            <h1 class="welcome-title">🔥 Fire Burger House</h1>
-            <p class="welcome-sub">Portal de acesso ao sistema</p>
-        </div>
-
-        <img src="./img/admin/Logo da pagina adm.png" alt="Banner Fire Burger House" class="login-image">
-
-        <div>
-            <div class="social-media">
-                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-            <p class="footer-note">© 2026 Fire Burger House — Todos os direitos reservados</p>
-        </div>
-    </div>
-
-    <!-- LADO DIREITO -->
-    <div class="login-right">
-        <div class="login-form-container">
-
-            <div class="company-logo">
-                <img src="./img/admin/Baner da empresa.png" alt="Logo">
+        <!-- LADO ESQUERDO -->
+        <div class="login-left">
+            <div>
+                <h1 class="welcome-title">🔥 Fire Burger House</h1>
+                <p class="welcome-sub">Portal de acesso ao sistema</p>
             </div>
 
-            <h2 class="login-title">Bem-vindo de volta!</h2>
-            <p class="login-subtitle">Escolha seu tipo de acesso e faça login</p>
+            <img src="assets/img/admin/logo-admin.png" alt="Banner Fire Burger House" class="login-image">
 
-            <!-- ABAS -->
-            <div class="tabs">
-                <button class="tab-btn active" id="tab-admin" onclick="selectTab('admin')">
-                    <i class="fa-solid fa-shield-halved"></i> Administrador
-                </button>
-                <button class="tab-btn" id="tab-user" onclick="selectTab('user')">
-                    <i class="fa-solid fa-user"></i> Usuário
-                </button>
-            </div>
-
-            <!-- CAMPO USUÁRIO -->
-            <div class="form-group">
-                <div class="input-wrap">
-                    <input type="text" id="username" class="form-input" placeholder=" " autocomplete="username">
-                    <label>Usuário</label>
-                    <i class="fa-solid fa-user input-icon"></i>
+            <div>
+                <div class="social-media">
+                    <a href="#" class="social-icon" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
+                    <a href="#" class="social-icon" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+                    <a href="#" class="social-icon" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
                 </div>
+                <p class="footer-note">© 2026 Fire Burger House — Todos os direitos reservados</p>
             </div>
+        </div>
 
-            <!-- CAMPO SENHA -->
-            <div class="form-group">
-                <div class="input-wrap">
-                    <input type="password" id="password" class="form-input" placeholder=" " autocomplete="current-password">
-                    <label>Senha</label>
-                    <button class="password-toggle" onclick="togglePassword()" type="button">
-                        <i class="fa-solid fa-eye" id="eye-icon"></i>
+        <!-- LADO DIREITO -->
+        <div class="login-right">
+            <div class="login-form-container">
+
+                <div class="company-logo">
+                    <img src="assets/img/admin/banner-empresa.png" alt="Logo Fire Burger House">
+                </div>
+
+                <h2 class="login-title">Bem-vindo de volta!</h2>
+                <p class="login-subtitle">Escolha seu tipo de acesso e faça login</p>
+
+                <!-- ABAS -->
+                <div class="tabs">
+                    <button class="tab-btn active" id="tab-admin" type="button">
+                        <i class="ri-shield-user-line"></i> Administrador
+                    </button>
+                    <button class="tab-btn" id="tab-user" type="button">
+                        <i class="ri-user-line"></i> Usuário
                     </button>
                 </div>
-            </div>
 
-            <!-- LEMBRAR -->
-            <div class="remember-row">
-                <input type="checkbox" id="remember-me">
-                <label for="remember-me">Lembrar meus dados</label>
-            </div>
+                <!-- CAMPO USUÁRIO -->
+                <div class="form-group">
+                    <div class="input-wrap">
+                        <input type="text" id="username" class="form-input" placeholder=" " autocomplete="username">
+                        <label for="username">Usuário</label>
+                        <i class="ri-user-line input-icon"></i>
+                    </div>
+                </div>
 
-            <!-- BOTÃO ENTRAR -->
-            <button class="btn-login" onclick="handleLogin()">
-                <i class="fa-solid fa-right-to-bracket"></i>
-                <span id="btn-text">Entrar como Administrador</span>
-            </button>
+                <!-- CAMPO SENHA -->
+                <div class="form-group">
+                    <div class="input-wrap">
+                        <input type="password" id="password" class="form-input" placeholder=" " autocomplete="current-password">
+                        <label for="password">Senha</label>
+                        <button class="password-toggle" type="button" aria-label="Mostrar senha">
+                            <i class="ri-eye-line" id="eye-icon"></i>
+                        </button>
+                    </div>
+                </div>
 
-            <!-- DICA DE CREDENCIAIS (para demo / portfólio) -->
-            <div class="credentials-hint admin-hint" id="hint-admin">
-                <strong>🔐 Credenciais de Admin</strong>
-                Usuário: <b>admin</b> &nbsp;|&nbsp; Senha: <b>admin123</b><br>
-                → Redireciona para o <b>Dashboard</b>
-            </div>
-            <div class="credentials-hint user-hint" id="hint-user">
-                <strong>👤 Credenciais de Usuário</strong>
-                Usuário: <b>usuario</b> &nbsp;|&nbsp; Senha: <b>1234</b><br>
-                → Redireciona para a <b>Home</b>
-            </div>
+                <!-- LEMBRAR -->
+                <div class="remember-row">
+                    <input type="checkbox" id="remember-me">
+                    <label for="remember-me">Lembrar meus dados</label>
+                </div>
 
+                <!-- BOTÃO ENTRAR -->
+                <button class="btn-login" type="button">
+                    <i class="ri-login-box-line"></i>
+                    <span id="btn-text">Entrar como Administrador</span>
+                </button>
+
+            </div>
         </div>
+
     </div>
 
-</div>
-
-<script>
-    // ================================================
-    // USUÁRIOS DO SISTEMA
-    // ================================================
-    const USERS = {
-        admin: {
-            password: 'admin123',
-            role: 'admin',
-            redirect: '../pages/Admin/Dashboard.html',
-            name: 'Allan Gustavo'
-        },
-        usuario: {
-            password: '1234',
-            role: 'user',
-            redirect: './pages/Home.html',
-            name: 'Usuário'
-        }
-    };
-
-    // ================================================
-    // ABA ATIVA
-    // ================================================
-    let currentTab = 'admin';
-
-    function selectTab(tab) {
-        currentTab = tab;
-
-        document.getElementById('tab-admin').classList.toggle('active', tab === 'admin');
-        document.getElementById('tab-user').classList.toggle('active', tab === 'user');
-
-        document.getElementById('btn-text').textContent =
-            tab === 'admin' ? 'Entrar como Administrador' : 'Entrar como Usuário';
-
-        document.getElementById('hint-admin').style.display = tab === 'admin' ? 'block' : 'none';
-        document.getElementById('hint-user').style.display  = tab === 'user'  ? 'block' : 'none';
-
-        // limpar campos ao trocar de aba
-        document.getElementById('username').value = '';
-        document.getElementById('password').value = '';
-        document.getElementById('username').focus();
-    }
-
-    // mostrar hint da aba inicial
-    document.getElementById('hint-admin').style.display = 'block';
-
-    // ================================================
-    // LEMBRAR USUÁRIO
-    // ================================================
-    window.addEventListener('DOMContentLoaded', () => {
-        if (localStorage.getItem('rememberMe') === 'true') {
-            const savedUser = localStorage.getItem('savedUsername');
-            const savedTab  = localStorage.getItem('savedTab') || 'admin';
-            selectTab(savedTab);
-            document.getElementById('username').value = savedUser || '';
-            document.getElementById('remember-me').checked = true;
-        }
-    });
-
-    // ================================================
-    // LÓGICA DE LOGIN
-    // ================================================
-    function handleLogin() {
-        const username = document.getElementById('username').value.trim();
-        const password = document.getElementById('password').value;
-        const remember = document.getElementById('remember-me').checked;
-
-        if (!username || !password) {
-            showToast('Preencha todos os campos', 'error');
-            return;
-        }
-
-        const user = USERS[username];
-
-        if (!user) {
-            showToast('Usuário não encontrado', 'error');
-            return;
-        }
-
-        // Verificar se o perfil bate com a aba selecionada
-        if (user.role !== currentTab) {
-            const abaCorreta = user.role === 'admin' ? 'Administrador' : 'Usuário';
-            showToast(`Use a aba "${abaCorreta}" para este login`, 'error');
-            return;
-        }
-
-        if (user.password !== password) {
-            showToast('Senha incorreta. Tente novamente.', 'error');
-            return;
-        }
-
-        // Salvar / limpar "lembrar"
-        if (remember) {
-            localStorage.setItem('rememberMe', 'true');
-            localStorage.setItem('savedUsername', username);
-            localStorage.setItem('savedTab', currentTab);
-        } else {
-            localStorage.removeItem('rememberMe');
-            localStorage.removeItem('savedUsername');
-            localStorage.removeItem('savedTab');
-        }
-
-        // Salvar sessão
-        sessionStorage.setItem('loggedUser', username);
-        sessionStorage.setItem('loggedRole', user.role);
-        sessionStorage.setItem('loggedName', user.name);
-
-        const destino = user.role === 'admin' ? 'Dashboard' : 'Home';
-        showToast(`Bem-vindo, ${user.name}! Indo para ${destino}...`, 'success');
-
-        setTimeout(() => {
-            window.location.href = user.redirect;
-        }, 1500);
-    }
-
-    // ================================================
-    // MOSTRAR / OCULTAR SENHA
-    // ================================================
-    function togglePassword() {
-        const input = document.getElementById('password');
-        const icon  = document.getElementById('eye-icon');
-        if (input.type === 'password') {
-            input.type = 'text';
-            icon.className = 'fa-solid fa-eye-slash';
-        } else {
-            input.type = 'password';
-            icon.className = 'fa-solid fa-eye';
-        }
-    }
-
-    // ================================================
-    // TOAST DE NOTIFICAÇÃO
-    // ================================================
-    function showToast(text, type) {
-        const old = document.querySelector('.toast');
-        if (old) old.remove();
-
-        const icon = type === 'success' ? 'fa-circle-check' : 'fa-circle-xmark';
-        const div  = document.createElement('div');
-        div.className = `toast ${type}`;
-        div.innerHTML = `<i class="fa-solid ${icon}"></i> ${text}`;
-        document.body.appendChild(div);
-
-        setTimeout(() => div.remove(), 3000);
-    }
-
-    // ================================================
-    // ENTER para logar
-    // ================================================
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') handleLogin();
-    });
-</script>
+    <script src="assets/js/utils.js"></script>
+    <script src="assets/js/main.js"></script>
 
 </body>
 </html>

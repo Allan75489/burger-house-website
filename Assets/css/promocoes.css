@@ -1,0 +1,255 @@
+/* =====================================================================
+   PROMOCOES.CSS — Estilos da página de promoções: cards de oferta,
+   botão flutuante do carrinho e painel deslizante (drawer).
+   ===================================================================== */
+
+body.promocoes-page {
+  background: #0f0f0f;
+}
+
+/* ===== SEÇÃO PROMOÇÕES ===== */
+.promocoes {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+}
+
+.promocoes h2 {
+  font-size: 42px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.container-promocoes {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+/* ===== CARD DE PROMOÇÃO ===== */
+.card-promocao {
+  background: var(--color-surface-alt);
+  padding: 30px;
+  width: 260px;
+  border-radius: 15px;
+  text-align: center;
+  color: var(--color-text);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.card-promocao:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.5);
+}
+
+.card-promocao h3 {
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+
+.card-promocao p {
+  margin-bottom: 20px;
+  color: var(--color-text-muted);
+}
+
+.preco-antigo {
+  display: block;
+  text-decoration: line-through;
+  color: var(--color-text-faint);
+  margin-bottom: 5px;
+}
+
+.preco-novo {
+  display: block;
+  font-size: 26px;
+  color: var(--color-accent-strong);
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.card-promocao button {
+  padding: 12px;
+  border: none;
+  background: red;
+  color: var(--color-text);
+  border-radius: var(--radius-md);
+  font-weight: bold;
+  transition: background var(--transition-base);
+}
+
+.card-promocao button:hover {
+  background: var(--color-danger-hover);
+}
+
+/* ===== VOLTAR AO CARDÁPIO ===== */
+.voltar-cardapio {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  background: red;
+  color: var(--color-text);
+  padding: 10px 18px;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  font-weight: bold;
+  transition: var(--transition-base);
+}
+
+.voltar-cardapio:hover {
+  background: var(--color-danger-hover);
+}
+
+/* ===== BOTÃO FLUTUANTE DO CARRINHO ===== */
+.btn-carrinho-flutuante {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: red;
+  color: var(--color-text);
+  border: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 24px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 1001;
+}
+
+#contador {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: black;
+  color: white;
+  font-size: 12px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== OVERLAY ===== */
+#overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--transition-base);
+  z-index: 1000;
+}
+
+#overlay.ativo {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ===== CARRINHO (DRAWER) ===== */
+.carrinho-drawer {
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 350px;
+  height: 100vh;
+  background: #111;
+  color: var(--color-text);
+  padding: 20px;
+  transition: 0.4s;
+  z-index: 1002;
+  display: flex;
+  flex-direction: column;
+}
+
+.carrinho-drawer.ativo {
+  right: 0;
+}
+
+.carrinho-drawer .topo-drawer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.carrinho-drawer .topo-drawer button {
+  background: red;
+  border: none;
+  color: var(--color-text);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+#itens {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 5px;
+  gap: 8px;
+}
+
+.remover {
+  background: red;
+  border: none;
+  color: var(--color-text);
+  padding: 3px 8px;
+  border-radius: 5px;
+  flex-shrink: 0;
+}
+
+.carrinho-drawer .total {
+  margin: 15px 0;
+  font-size: 18px;
+}
+
+.btn-finalizar {
+  background: green;
+  border: none;
+  color: var(--color-text);
+  padding: 12px;
+  border-radius: var(--radius-md);
+  margin-bottom: 10px;
+}
+
+.btn-limpar {
+  background: red;
+  border: none;
+  color: var(--color-text);
+  padding: 10px;
+  border-radius: var(--radius-md);
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 480px) {
+  .carrinho-drawer {
+    width: 100%;
+    right: -100%;
+  }
+
+  .voltar-cardapio {
+    top: 16px;
+    left: 16px;
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+}

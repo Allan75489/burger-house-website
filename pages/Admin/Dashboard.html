@@ -4,72 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema Administrativo</title>
+    <title>Dashboard | Sistema Administrativo</title>
 
-    <!-- CSS principal -->
-    <link rel="stylesheet" href="../../Assets/css/Dashboard.css">
-
-    <!-- CSS avaliações + gráfico -->
-    <link rel="stylesheet" href="avaliacoes-grafico.css">
-
-    <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/global.css">
+    <link rel="stylesheet" href="../../assets/css/admin.css">
 
-    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body>
+<body class="admin-page" data-active="dashboard">
 
-    <!-- Sidebar -->
-    <div class="Sidebar">
-        <div class="Sidebar-header">
-            <h3 class="brand">
-                <span class="material-icons">lunch_dining</span>
-                FIRE BURGE HOUSE
-            </h3>
-            <span class="material-icons">menu</span>
-        </div>
+    <div id="sidebar-placeholder"></div>
 
-        <div class="Sidebar-menu">
-            <ul>
-                <li>
-                    <a href="Dashboard.html" class="active">
-                        <span class="material-icons">dashboard</span> Dashboard
-                    </a>
-                </li>
-                <li>
-                    <a href="Pedidos.html">
-                        <span class="material-icons">supervisor_account</span> Pedidos
-                    </a>
-                </li>
-                <li>
-                    <a href="Relatorio.html">
-                        <span class="material-icons">bar_chart</span> Relatórios
-                    </a>
-                </li>
-                <li>
-                    <a href="Configurações.html">
-                        <span class="material-icons">settings</span> Configurações
-                    </a>
-                </li>
-                <li>
-                    <a href="../../index.html">
-                        <span class="material-icons">home</span> Home
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- Main Content -->
     <div class="main-content">
 
-        <!-- Header -->
-        <header>
-            <div class="user-greeting">
-                Olá, Allan Gustavo <strong>(Admin)</strong>
-            </div>
+        <header class="main-header">
+            <div class="user-greeting">Olá, Allan Gustavo <strong>(Admin)</strong></div>
         </header>
 
         <!-- Cards -->
@@ -117,37 +68,13 @@
 
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 FIRE BURGE HOUSE. Todos os direitos reservados.</p>
+    <footer class="admin-footer">
+        <p>&copy; 2026 Fire Burger House. Todos os direitos reservados.</p>
     </footer>
 
-    <!-- Script do Gráfico -->
-    <script>
-        const ctx = document.getElementById('salesChart');
-
-        new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
-                datasets: [{
-                    label: 'Vendas (R$)',
-                    data: [1200, 1900, 3000, 2500, 4200, 5100, 4800],
-                    borderWidth: 3,
-                    tension: 0.4
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: { display: true }
-                }
-            }
-        });
-    </script>
-    
-    <script src="Dashboard.js"></script>
-
+    <script src="../../assets/js/utils.js"></script>
+    <script src="../../assets/js/dashboard.js"></script>
+    <script src="../../assets/js/main.js"></script>
 
 </body>
 </html>

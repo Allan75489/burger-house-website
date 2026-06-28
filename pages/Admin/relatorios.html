@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatórios | Sistema Administrativo</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/global.css">
+    <link rel="stylesheet" href="../../assets/css/admin.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="admin-page" data-active="relatorios">
+
+    <div id="sidebar-placeholder"></div>
+
+    <div class="main-content">
+
+        <header class="main-header">
+            <div class="user-greeting">Relatórios e Resultados</div>
+        </header>
+
+        <!-- Cards de Resumo -->
+        <section class="dashboard-cards">
+            <div class="card">
+                <h4>Faturamento Mensal</h4>
+                <p>R$ 48.900</p>
+            </div>
+            <div class="card">
+                <h4>Pedidos no Mês</h4>
+                <p>1.240</p>
+            </div>
+            <div class="card">
+                <h4>Ticket Médio</h4>
+                <p>R$ 39,40</p>
+            </div>
+            <div class="card">
+                <h4>Taxa de Retorno</h4>
+                <p>68%</p>
+            </div>
+        </section>
+
+        <!-- Gráfico -->
+        <section class="dashboard-charts">
+            <h3>Vendas Mensais</h3>
+            <canvas id="monthlyChart"></canvas>
+        </section>
+
+        <!-- Tabela de Resultados -->
+        <section class="results-table">
+            <h3>Resumo por Produto</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Vendas</th>
+                        <th>Faturamento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Burger Clássico</td>
+                        <td>420</td>
+                        <td>R$ 16.800</td>
+                    </tr>
+                    <tr>
+                        <td>Burger Bacon</td>
+                        <td>310</td>
+                        <td>R$ 13.950</td>
+                    </tr>
+                    <tr>
+                        <td>Veg Burger</td>
+                        <td>190</td>
+                        <td>R$ 7.600</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </div>
+
+    <footer class="admin-footer">
+        <p>&copy; 2026 Fire Burger House. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="../../assets/js/utils.js"></script>
+    <script src="../../assets/js/dashboard.js"></script>
+    <script src="../../assets/js/main.js"></script>
+
+</body>
+</html>

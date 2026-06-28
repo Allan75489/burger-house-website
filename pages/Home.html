@@ -1,143 +1,89 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fire Burger House</title>
 
-    <link rel="stylesheet" href="../Assets/css/Home.css">
-
     <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/global.css">
+    <link rel="stylesheet" href="../assets/css/home.css">
 </head>
 
-<body>
+<body data-active="home">
 
-    <!-- NAVBAR -->
-
-    <nav class="navbar">
-
-        <div class="nav_container">
-
-            <div class="logo">
-                <a href="#home">🔥 Fire Burger House</a>
-            </div>
-
-            <ul class="nav_links">
-
-                <li><a href="#home">Home</a></li>
-                <li><a href="#menu">Menu</a></li>
-                <li><a href="#promocoes">Promoções</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#contato">Contato</a></li>
-
-            </ul>
-
-        </div>
-
-    </nav>
+    <div id="navbar-placeholder"></div>
 
     <!-- HERO -->
-
     <section class="hero" id="home">
-
-        <div class="hero_text">
-
+        <div class="hero-text">
             <h1>O Melhor Hambúrguer da Cidade 🔥</h1>
-
             <p>
                 Hambúrguer artesanal feito com ingredientes frescos e muito sabor.
                 Experimente o verdadeiro sabor da Fire Burger House.
             </p>
-            <a href="Cardapio.html" class="btn">Cardápio</a>
+            <a href="cardapio.html" class="btn">Cardápio</a>
         </div>
-
     </section>
 
     <!-- MENU -->
-
-    <section class="menu" id="menu">
-
+    <section class="menu-section" id="menu">
         <h2>Favoritos da Casa</h2>
 
-        <div class="menu_container">
+        <div class="menu-grid">
 
-            <div class="burger_card">
-
+            <div class="burger-card">
                 <h3>Clássico da Casa</h3>
-
                 <p>Pão brioche, carne 180g, queijo cheddar e molho especial.</p>
-
-                <span>R$ 25,90</span>
-
-                <button>Adicionar</button>
-
+                <span class="preco">R$ 24,90</span>
+                <button type="button" data-produto="Clássico da Casa" data-preco="24.90">Adicionar</button>
             </div>
 
-            <div class="burger_card">
-
+            <div class="burger-card">
                 <h3>Duplo Bacon</h3>
-
                 <p>Dois hambúrgueres, cheddar, bacon crocante e molho BBQ.</p>
-
-                <span>R$ 32,90</span>
-
-                <button>Adicionar</button>
-
+                <span class="preco">R$ 34,90</span>
+                <button type="button" data-produto="Duplo Bacon" data-preco="34.90">Adicionar</button>
             </div>
 
-            <div class="burger_card">
-
+            <div class="burger-card">
                 <h3>Bacon Supreme</h3>
-
                 <p>Hambúrguer artesanal, bacon crocante e cheddar cremoso.</p>
-
-                <span>R$ 29,90</span>
-
-                <button>Adicionar</button>
-
+                <span class="preco">R$ 29,90</span>
+                <button type="button" data-produto="Bacon Supreme" data-preco="29.90">Adicionar</button>
             </div>
 
         </div>
-
     </section>
 
     <!-- PROMOÇÕES -->
-
-    <section class="promo" id="promocoes">
-
+    <section class="promo-section" id="promocoes">
         <h2>Promoções 🔥</h2>
 
-        <div class="promo_container">
+        <div class="promo-grid">
 
-            <div class="promo_card">
-
+            <div class="promo-card">
                 <h3>Combo Casal</h3>
-
                 <p>2 hambúrgueres + 2 batatas + 2 refrigerantes</p>
-
-                <span>R$ 49,90</span>
-
+                <span class="preco">R$ 49,90</span>
             </div>
 
-            <div class="promo_card">
-
+            <div class="promo-card">
                 <h3>Combo Família</h3>
-
                 <p>4 hambúrgueres + 2 batatas grandes + 4 bebidas</p>
-
-                <span>R$ 89,90</span>
-
+                <span class="preco">R$ 89,90</span>
             </div>
 
         </div>
 
+        <p class="promo-cta">
+            <a href="promocoes.html" class="btn">Ver todas as promoções</a>
+        </p>
     </section>
 
     <!-- SOBRE -->
-
-    <section class="about" id="sobre">
-
+    <section class="about-section" id="sobre">
         <h2>Sobre Nós</h2>
 
         <p>
@@ -156,37 +102,39 @@
         <p>
             Mais do que uma hamburgueria, queremos ser o lugar onde amigos e famílias
             se reúnem para aproveitar bons momentos e sabores inesquecíveis. 🔥🍔
-
-        <p> Desde 2020 trazendo os melhores hambúrgueres artesanais da cidade.
-            Ingredientes frescos e muito sabor.
         </p>
+
+        <p>
+            Desde 2020 trazendo os melhores hambúrgueres artesanais da cidade.
+            Ingredientes frescos e muito sabor.
         </p>
     </section>
 
     <!-- CONTATO -->
-
-    <section class="contact" id="contato">
-
+    <section class="contact-section" id="contato">
         <h2>Contato</h2>
-
         <p>📍 Mulungu - PB</p>
-
         <p>📞 (83) 99199-8747</p>
-
         <p>📧 fireburger@email.com</p>
-
     </section>
 
-    <!-- FOOTER -->
+    <div id="footer-placeholder"></div>
 
-    <footer>
-
-        <p>© 2026 Fire Burger House - Todos os direitos reservados</p>
-
-    </footer>
-
-    <script src="Home.js"></script>
+    <script src="../assets/js/utils.js"></script>
+    <script src="../assets/js/carrinho.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // Botões "Adicionar" dos favoritos da casa usam o carrinho compartilhado.
+        document.querySelectorAll(".burger-card button[data-produto]").forEach((botao) => {
+            botao.addEventListener("click", () => {
+                adicionarAoCarrinho({
+                    nome: botao.dataset.produto,
+                    preco: parseFloat(botao.dataset.preco),
+                });
+                mostrarToast(`${botao.dataset.produto} adicionado ao carrinho 🔥`, "success");
+            });
+        });
+    </script>
 
 </body>
-
 </html>

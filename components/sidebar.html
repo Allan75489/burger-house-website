@@ -1,0 +1,45 @@
+<!-- components/sidebar.html
+     Sidebar do painel administrativo, injetada via JS em todas as
+     páginas de pages/admin/. O item ativo é marcado por main.js de
+     acordo com data-active no <body> de cada página. -->
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <h3 class="brand">
+      <span class="material-icons" aria-hidden="true">lunch_dining</span>
+      FIRE BURGER HOUSE
+    </h3>
+    <button class="menu-toggle" id="sidebar-toggle" aria-label="Abrir menu">
+      <span class="material-icons">menu</span>
+    </button>
+  </div>
+
+  <nav class="sidebar-menu">
+    <ul>
+      <li>
+        <a href="dashboard.html" data-nav="dashboard">
+          <span class="material-icons">dashboard</span> Dashboard
+        </a>
+      </li>
+      <li>
+        <a href="pedidos.html" data-nav="pedidos">
+          <span class="material-icons">supervisor_account</span> Pedidos
+        </a>
+      </li>
+      <li>
+        <a href="relatorios.html" data-nav="relatorios">
+          <span class="material-icons">bar_chart</span> Relatórios
+        </a>
+      </li>
+      <li>
+        <a href="configuracoes.html" data-nav="configuracoes">
+          <span class="material-icons">settings</span> Configurações
+        </a>
+      </li>
+      <li>
+        <a href="../../index.html" data-nav="logout">
+          <span class="material-icons">home</span> Home
+        </a>
+      </li>
+    </ul>
+  </nav>
+</aside>

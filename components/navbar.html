@@ -1,0 +1,23 @@
+<!-- components/navbar.html
+     Navbar pública, injetada via JS em todas as páginas do site (home,
+     cardápio, promoções). O link com classe "active" deve ser ajustado
+     por main.js de acordo com a página atual (data-active no <body>). -->
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="nav-logo">
+      <a href="../index.html">🔥 Fire Burger House</a>
+    </div>
+
+    <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
+      <i class="ri-menu-line"></i>
+    </button>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="home.html#home" data-nav="home">Home</a></li>
+      <li><a href="cardapio.html" data-nav="cardapio">Cardápio</a></li>
+      <li><a href="promocoes.html" data-nav="promocoes">Promoções</a></li>
+      <li><a href="home.html#sobre" data-nav="sobre">Sobre</a></li>
+      <li><a href="home.html#contato" data-nav="contato">Contato</a></li>
+    </ul>
+  </div>
+</nav>

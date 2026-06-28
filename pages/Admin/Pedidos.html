@@ -1,181 +1,52 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pedidos | Sistema Administrativo</title>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="../../Assets/css/Dashboard.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+    <link rel="stylesheet" href="../../assets/css/global.css">
+    <link rel="stylesheet" href="../../assets/css/admin.css">
 </head>
 
-<body>
+<body class="admin-page" data-active="pedidos">
 
-<!-- Sidebar -->
-<aside class="Sidebar">
-    <div class="Sidebar-header">
-        <h3 class="brand">
-            <span class="material-icons">lunch_dining</span>
-            FIRE BURGE HOUSE
-        </h3>
+    <div id="sidebar-placeholder"></div>
+
+    <div class="main-content">
+
+        <header class="main-header">
+            <div class="user-greeting">Gestão de Pedidos</div>
+        </header>
+
+        <section class="orders-wrapper">
+            <table class="orders-table">
+                <thead>
+                    <tr>
+                        <th>#Pedido</th>
+                        <th>Cliente</th>
+                        <th>Item</th>
+                        <th>Valor</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <!-- As linhas são renderizadas dinamicamente por pedidos.js -->
+                <tbody id="corpo-tabela-pedidos"></tbody>
+            </table>
+        </section>
+
     </div>
 
-    <nav class="Sidebar-menu">
-        <ul>
-            <li>
-                <a href="Dashboard.html">
-                    <span class="material-icons">dashboard</span> Dashboard
-                </a>
-            </li>
-            <li>
-                <a href="Pedidos.html" class="active">
-                    <span class="material-icons">supervisor_account</span> Pedidos
-                </a>
-            </li>
-            <li>
-                <a href="Relatorio.html">
-                    <span class="material-icons">bar_chart</span> Relatórios
-                </a>
-            </li>
-            <li>
-                <a href="Configurações.html">
-                    <span class="material-icons">settings</span> Configurações
-                </a>
-            </li>
-            <li>
-                <a href="../../index.html">
-                    <span class="material-icons">home</span> Home
-                </a>
-            </li>
-        </ul>
-    </nav>
-</aside>
+    <footer class="admin-footer">
+        <p>&copy; 2026 Fire Burger House. Todos os direitos reservados.</p>
+    </footer>
 
-<!-- Conteúdo -->
-<section>
-    <table class="orders-table">
-        <thead>
-            <tr>
-                <th>#Pedido</th>
-                <th>Cliente</th>
-                <th>Item</th>
-                <th>Valor</th>
-                <th>Status</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-
-            <tr>
-                <td>#1024</td>
-                <td>João Silva</td>
-                <td>Combo Fire Burger</td>
-                <td>R$ 39,90</td>
-                <td><span class="status pendente">Pendente</span></td>
-                <td>
-                    <button class="btn-action btn-view">Ver</button>
-                    <button class="btn-action btn-delete">Excluir</button>
-                </td>
-            </tr>
-
-            <tr>
-                <td>#1025</td>
-                <td>Maria Oliveira</td>
-                <td>Duplo Bacon</td>
-                <td>R$ 44,90</td>
-                <td><span class="status preparo">Em preparo</span></td>
-                <td>
-                    <button class="btn-action btn-view">Ver</button>
-                    <button class="btn-action btn-delete">Excluir</button>
-                </td>
-            </tr>
-
-            <tr>
-                <td>#1026</td>
-                <td>Carlos Souza</td>
-                <td>Fire Chicken</td>
-                <td>R$ 29,90</td>
-                <td><span class="status entregue">Entregue</span></td>
-                <td>
-                    <button class="btn-action btn-view">Ver</button>
-                    <button class="btn-action btn-delete">Excluir</button>
-                </td>
-            </tr>
-
-            <tr>
-                <td>#1027</td>
-                <td>Ana Costa</td>
-                <td>Fire Cheese</td>
-                <td>R$ 34,90</td>
-                <td><span class="status pendente">Pendente</span></td>
-                <td>
-                    <button class="btn-action btn-view">Ver</button>
-                    <button class="btn-action btn-delete">Excluir</button>
-                </td>
-            </tr>
-
-            <tr>
-                <td>#1028</td>
-                <td>Roberto Santos</td>
-                <td>Fire Bacon</td>
-                <td>R$ 39,90</td>
-                <td><span class="status preparo">Em preparo</span></td>
-                <td>
-                    <button class="btn-action btn-view">Ver</button>
-                    <button class="btn-action btn-delete">Excluir</button>
-                </td>
-            </tr>
-
-            <tr>
-                <td>#1029</td>
-                <td>Juliana Mendes</td>
-                <td>Fire Double</td>
-                <td>R$ 49,90</td>
-                <td><span class="status preparo">Em preparo</span></td>
-                <td>
-                    <button class="btn-action btn-view">Ver</button>
-                    <button class="btn-action btn-delete">Excluir</button>
-                </td>
-            </tr>
-
-            <tr>
-                <td>#1030</td>
-                <td>João Pedro</td>
-                <td>Combo Fire Burger</td>
-                <td>R$ 29,90</td>
-                <td><span class="status entregue">Entregue</span></td>
-                <td>
-                    <button class="btn-action btn-view">Ver</button>
-                    <button class="btn-action btn-delete">Excluir</button>
-                </td>
-            </tr>
-
-            <tr>
-                <td>#1031</td>
-                <td>Lukas Silva</td>
-                <td>Fire Chicken</td>
-                <td>R$ 29,90</td>
-                <td><span class="status pendente">Pendente</span></td>
-                <td>
-                    <button class="btn-action btn-view">Ver</button>
-                    <button class="btn-action btn-delete">Excluir</button>
-                </td>
-            </tr>
-
-        </tbody>
-        
-    </table>
-</section>
-
-</main>
-
-<footer>
-    <p>&copy; 2026 FIRE BURGE HOUSE. Todos os direitos reservados.</p>
-</footer>
-
-<script src="../Admin/Dashboard.js"></script>
+    <script src="../../assets/js/utils.js"></script>
+    <script src="../../assets/js/pedidos.js"></script>
+    <script src="../../assets/js/main.js"></script>
 
 </body>
 </html>

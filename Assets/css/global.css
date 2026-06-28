@@ -1,0 +1,308 @@
+/* =====================================================================
+   FIRE BURGER HOUSE — GLOBAL.CSS
+   Reset, variáveis de tema, tipografia, botões, header/navbar, footer,
+   cards e responsividade compartilhada entre todas as páginas públicas.
+   ===================================================================== */
+
+:root {
+  /* Cores principais (identidade visual original do projeto) */
+  --color-bg: #111111;
+  --color-bg-alt: #181818;
+  --color-bg-black: #000000;
+  --color-surface: #1b1b1b;
+  --color-surface-alt: #1c1c1c;
+  --color-border: #2a2a2a;
+
+  --color-primary: #ff4d00;
+  --color-primary-hover: #ff6a2f;
+  --color-accent: #ff3c00;
+  --color-accent-strong: #ff2e2e;
+  --color-danger: #e60000;
+  --color-danger-hover: #b80000;
+
+  --color-text: #ffffff;
+  --color-text-muted: #cccccc;
+  --color-text-faint: #777777;
+
+  --font-base: Arial, Helvetica, sans-serif;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  --shadow-card: 0 10px 20px rgba(0, 0, 0, 0.5);
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+}
+
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-base);
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* ===== TIPOGRAFIA ===== */
+h1, h2, h3, h4 {
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.25rem; }
+
+p { font-size: 1rem; }
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+/* ===== LAYOUT BASE ===== */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+main {
+  min-height: 60vh;
+}
+
+/* ===== BOTÕES ===== */
+.btn {
+  display: inline-block;
+  background: var(--color-primary);
+  color: var(--color-text);
+  padding: 12px 30px;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-weight: bold;
+  text-decoration: none;
+  transition: background var(--transition-base), transform var(--transition-base);
+}
+
+.btn:hover {
+  background: var(--color-primary-hover);
+  transform: scale(1.05);
+}
+
+.btn-secondary {
+  background: var(--color-danger);
+}
+
+.btn-secondary:hover {
+  background: var(--color-danger-hover);
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+/* ===== NAVBAR (Header público) ===== */
+.navbar {
+  width: 100%;
+  background: var(--color-bg-black);
+  padding: 20px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo a {
+  color: var(--color-primary);
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--color-text);
+  font-size: 16px;
+  transition: color var(--transition-base);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--color-primary);
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--color-text);
+  font-size: 26px;
+}
+
+/* ===== CARDS (genéricos, reaproveitados pelas páginas) ===== */
+.card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: 15px;
+  text-align: center;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-card);
+}
+
+.card img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  background: #333;
+}
+
+.card h3 {
+  margin-top: 10px;
+}
+
+.card .preco {
+  display: block;
+  margin: 10px 0;
+  color: var(--color-accent);
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* ===== FOOTER ===== */
+.site-footer {
+  background: var(--color-bg-black);
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+/* ===== TOAST DE NOTIFICAÇÃO (compartilhado) ===== */
+.toast {
+  position: fixed;
+  top: 22px;
+  right: 22px;
+  padding: 14px 20px;
+  border-radius: var(--radius-lg);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+  animation: slideIn 0.3s ease;
+}
+
+.toast.success { background: #16a34a; }
+.toast.error   { background: #dc2626; }
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ===== UTILITÁRIOS ===== */
+.text-center { text-align: center; }
+.hidden { display: none !important; }
+
+/* =====================================================================
+   RESPONSIVIDADE GLOBAL
+   ===================================================================== */
+@media (max-width: 900px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--color-bg-black);
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-base);
+  }
+
+  .nav-links.active {
+    max-height: 320px;
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 14px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.6rem; }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 94%;
+  }
+}

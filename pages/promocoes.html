@@ -1,497 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Promoções - Fire Burger House</title>
+
+    <link rel="stylesheet" href="../assets/css/global.css">
+    <link rel="stylesheet" href="../assets/css/promocoes.css">
 </head>
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
 
-    body {
-        font-family: Arial, Helvetica, sans-serif;
-        background: #0f0f0f;
-    }
+<body class="promocoes-page">
 
-    /* SEÇÃO PROMOÇÕES */
-
-    .promocoes {
-        min-height: 100vh;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 60px 20px;
-    }
-
-    /* Título */
-
-    .promocoes h2 {
-        font-size: 42px;
-        margin-bottom: 50px;
-        color: white;
-        text-align: center;
-    }
-
-    /* CONTAINER */
-
-    .container-promocoes {
-        width: 100%;
-        max-width: 1200px;
-
-        display: flex;
-        justify-content: center;
-        align-items: stretch;
-        flex-wrap: wrap;
-        gap: 30px;
-    }
-
-    /* CARDS */
-
-    .card-promocao {
-        background: #1c1c1c;
-        padding: 30px;
-        width: 260px;
-        border-radius: 15px;
-        text-align: center;
-        color: white;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-
-        box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .card-promocao:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 0 25px rgba(255, 0, 0, 0.5);
-    }
-
-    /* TEXTOS */
-
-    .card-promocao h3 {
-        margin-bottom: 10px;
-        font-size: 22px;
-    }
-
-    .card-promocao p {
-        margin-bottom: 20px;
-        color: #ccc;
-    }
-
-    /* PREÇOS */
-
-    .preco-antigo {
-        display: block;
-        text-decoration: line-through;
-        color: #777;
-        margin-bottom: 5px;
-    }
-
-    .preco-novo {
-        display: block;
-        font-size: 26px;
-        color: #ff2e2e;
-        font-weight: bold;
-        margin-bottom: 20px;
-    }
-
-    /* BOTÃO CARRINHO */
-
-    .btn-carrinho {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background: red;
-        color: white;
-        border: none;
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        font-size: 24px;
-        cursor: pointer;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        z-index: 1001;
-    }
-
-    #contador {
-        position: absolute;
-        top: -5px;
-        right: -5px;
-        background: black;
-        color: white;
-        font-size: 12px;
-        width: 22px;
-        height: 22px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    /* OVERLAY */
-
-    #overlay {
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.6);
-        opacity: 0;
-        pointer-events: none;
-        transition: 0.3s;
-        z-index: 1000;
-    }
-
-    #overlay.ativo {
-        opacity: 1;
-        pointer-events: all;
-    }
-
-    /* CARRINHO */
-
-    .carrinho {
-        position: fixed;
-        top: 0;
-        right: -400px;
-        width: 350px;
-        height: 100vh;
-        background: #111;
-        color: white;
-        padding: 20px;
-        transition: 0.4s;
-        z-index: 1002;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .carrinho.ativo {
-        right: 0;
-    }
-
-    /* TOPO */
-
-    .topo {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 20px;
-    }
-
-    .topo button {
-        background: red;
-        border: none;
-        color: white;
-        padding: 5px 10px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
-    /* ITENS */
-
-    #itens {
-        flex: 1;
-        overflow-y: auto;
-    }
-
-    .item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 10px;
-        border-bottom: 1px solid #333;
-        padding-bottom: 5px;
-    }
-
-    .remover {
-        background: red;
-        border: none;
-        color: white;
-        padding: 3px 8px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
-    /* TOTAL */
-
-    .total {
-        margin: 15px 0;
-        font-size: 18px;
-    }
-
-    /* BOTÕES */
-
-    .btn-finalizar {
-        background: green;
-        border: none;
-        color: white;
-        padding: 12px;
-        border-radius: 8px;
-        cursor: pointer;
-        margin-bottom: 10px;
-    }
-
-    .btn-limpar {
-        background: red;
-        border: none;
-        color: white;
-        padding: 10px;
-        border-radius: 8px;
-        cursor: pointer;
-    }
-
-    /* BOTÃO */
-
-    .card-promocao button {
-        padding: 12px;
-        border: none;
-        background: red;
-        color: white;
-        border-radius: 8px;
-        cursor: pointer;
-        font-weight: bold;
-        transition: background 0.3s;
-    }
-
-    .card-promocao button:hover {
-        background: #b80000;
-    }
-
-    .voltar-cardapio {
-        position: absolute;
-        top: 30px;
-        left: 30px;
-        background: red;
-        color: white;
-        padding: 10px 18px;
-        text-decoration: none;
-        border-radius: 8px;
-        font-weight: bold;
-        transition: 0.3s;
-    }
-
-    .voltar-cardapio:hover {
-        background: #b80000;
-    }
-</style>
-
-<body>
-
-    <a href="Cardapio.html" class="voltar-cardapio">
-        ⬅ Voltar para o Cardápio
-    </a>
-
+    <a href="cardapio.html" class="voltar-cardapio">⬅ Voltar para o Cardápio</a>
 
     <!-- 🔥 SEÇÃO DE PROMOÇÕES -->
     <section class="promocoes">
-
         <h2>🔥 Promoções da Semana</h2>
 
-        <div class="container-promocoes">
-
-            <!-- Promoção 1 -->
-            <div class="card-promocao">
-                <h3>🍔 Combo Duplo</h3>
-                <p>2 Hambúrgueres + Batata + Refrigerante</p>
-                <span class="preco-antigo">R$ 45,00</span>
-                <span class="preco-novo">R$ 34,90</span>
-                <button onclick="adicionarCarrinho('Combo Duplo', 34.90)">
-                    Adicionar ao Carrinho
-                </button>
-            </div>
-
-            <!-- Promoção 2 -->
-            <div class="card-promocao">
-                <h3>🔥 Burguer da Casa</h3>
-                <p>Hambúrguer artesanal + queijo + bacon</p>
-                <span class="preco-antigo">R$ 29,90</span>
-                <span class="preco-novo">R$ 22,90</span>
-                <button onclick="adicionarCarrinho('Burguer da Casa', 22.90)">
-                    Adicionar ao Carrinho
-                </button>
-            </div>
-
-            <!-- Promoção 3 -->
-            <div class="card-promocao">
-                <h3>🍟 Combo Família</h3>
-                <p>4 Hambúrgueres + 2 Batatas + 2 Refri</p>
-                <span class="preco-antigo">R$ 89,90</span>
-                <span class="preco-novo">R$ 69,90</span>
-                <button onclick="adicionarCarrinho('Combo Família', 69.90)">
-                    Adicionar ao Carrinho
-                </button>
-            </div>
-
-            <!-- Promoção 4 -->
-            <div class="card-promocao">
-                <h3>🔥Combo Double Shake</h3>
-                <p> 2 Hamburgues + coca cola lata de 350ml + Milk shake</p>
-                <span class="preco-antigo">R$ 74,80</span>
-                <span class="preco-novo">R$ 64,35</span>
-                <button onclick="adicionarCarrinho ('Combo Double Shake', 64.35)">
-                    Adicionar ao carrinho
-                </button>
-            </div>
-
-            <!-- promoção 5 -->
-            <div class="card-promocao">
-                <h3>🍟 Combo mega </h3>
-                <p>1 Batata Rustica + 2 classicos da casa + 1 Milk shake de ovomaltine</p>
-                <span class="preco-antigo">R$ 82,60</span>
-                <span class="preco-novo">R$ 74,60</span>
-                <button onclick="adicionarCarrinho ('Combo mega', 74.60)">
-                    Adicionar ao carrinho
-                </button>
-            </div>
-
-        </div>
-
+        <!-- Os cards de promoção são renderizados dinamicamente por produtos.js -->
+        <div class="container-promocoes" id="grid-promocoes"></div>
     </section>
 
     <!-- BOTÃO CARRINHO -->
-    <button class="btn-carrinho" onclick="abrirCarrinho()">
+    <button class="btn-carrinho-flutuante" id="btn-abrir-carrinho" type="button" aria-label="Abrir carrinho">
         🛒
         <span id="contador">0</span>
     </button>
 
     <!-- OVERLAY -->
-    <div id="overlay" onclick="fecharCarrinho()"></div>
+    <div id="overlay"></div>
 
-    <!-- CARRINHO -->
-    <div id="carrinho" class="carrinho">
-
-        <div class="topo">
+    <!-- CARRINHO (DRAWER) -->
+    <aside id="carrinho-drawer" class="carrinho-drawer">
+        <div class="topo-drawer">
             <h2>🛒 Carrinho</h2>
-            <button onclick="fecharCarrinho()">✖</button>
+            <button id="btn-fechar-carrinho" type="button" aria-label="Fechar carrinho">✖</button>
         </div>
 
         <div id="itens"></div>
 
         <div class="total">
-            <p>Total: <span id="total">R$ 0.00</span></p>
+            <p>Total: <span id="total-drawer">R$ 0,00</span></p>
         </div>
 
-        <button class="btn-finalizar" onclick="finalizarPedido()">
+        <button id="btn-finalizar-pedido-drawer" class="btn-finalizar" type="button">
             Finalizar Pedido
         </button>
 
-        <button class="btn-limpar" onclick="limparCarrinho()">
+        <button id="btn-limpar-carrinho-drawer" class="btn-limpar" type="button">
             Limpar Carrinho
         </button>
+    </aside>
 
-    </div>
-    </div>
-    <script>
-        let carrinho = JSON.parse(localStorage.getItem("carrinho")) || []
-
-        function salvarCarrinho() {
-            localStorage.setItem("carrinho", JSON.stringify(carrinho))
-        }
-
-        function atualizarCarrinho() {
-
-            const lista = document.getElementById("itens")
-            const total = document.getElementById("total")
-            const contador = document.getElementById("contador")
-
-            lista.innerHTML = ""
-
-            let soma = 0
-
-            carrinho.forEach((item, index) => {
-
-                soma += item.preco
-
-                lista.innerHTML += `
-<div class="item">
-${item.nome} - R$ ${item.preco}
-<button class="remover" onclick="removerItem(${index})">X</button>
-</div>
-`
-
-            })
-
-            total.innerText = "R$ " + soma.toFixed(2)
-            contador.innerText = carrinho.length
-
-        }
-
-        function adicionarCarrinho(nome, preco) {
-
-            carrinho.push({ nome, preco })
-
-            salvarCarrinho()
-            atualizarCarrinho()
-
-        }
-
-        function removerItem(index) {
-
-            carrinho.splice(index, 1)
-
-            salvarCarrinho()
-            atualizarCarrinho()
-
-        }
-
-        function limparCarrinho() {
-
-            carrinho = []
-
-            salvarCarrinho()
-            atualizarCarrinho()
-
-        }
-
-        function abrirCarrinho() {
-
-            document.getElementById("carrinho").classList.add("ativo")
-            document.getElementById("overlay").classList.add("ativo")
-
-        }
-
-        function fecharCarrinho() {
-
-            document.getElementById("carrinho").classList.remove("ativo")
-            document.getElementById("overlay").classList.remove("ativo")
-
-        }
-
-        function finalizarPedido() {
-
-            if (carrinho.length === 0) {
-                alert("Carrinho vazio")
-                return
-            }
-
-            let mensagem = "Pedido:%0A%0A"
-
-            let total = 0
-
-            carrinho.forEach(item => {
-                mensagem += `${item.nome} - R$ ${item.preco}%0A`
-                total += item.preco
-            })
-
-            mensagem += `%0ATotal: R$ ${total.toFixed(2)}`
-
-            let telefone = "5583991998747"
-
-            let url = `https://wa.me/${telefone}?text=${mensagem}`
-
-            window.open(url)
-
-        }
-
-        atualizarCarrinho()
-    </script>
+    <script src="../assets/js/utils.js"></script>
+    <script src="../assets/js/carrinho.js"></script>
+    <script src="../assets/js/produtos.js"></script>
+    <script src="../assets/js/main.js"></script>
 
 </body>
-
 </html>
