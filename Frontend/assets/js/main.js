@@ -18,6 +18,29 @@ async function carregarComponentesPublicos() {
   configurarMenuMobile();
   configurarNavegacaoAtiva();
   configurarRolagemSuave();
+  exibirUsuarioLogado();
+}
+
+/** Mostra o nome do usuário logado (sessionStorage) na navbar, com botão de sair. */
+function exibirUsuarioLogado() {
+  const nome = sessionStorage.getItem("loggedName");
+  const infoUsuario = document.getElementById("nav-user-info");
+  const spanNome = document.getElementById("nav-user-name");
+  const botaoSair = document.getElementById("nav-logout-btn");
+
+  if (!nome || !infoUsuario || !spanNome) return;
+
+  spanNome.textContent = nome;
+  infoUsuario.style.display = "flex";
+
+  if (botaoSair) {
+    botaoSair.addEventListener("click", () => {
+      sessionStorage.removeItem("loggedUser");
+      sessionStorage.removeItem("loggedRole");
+      sessionStorage.removeItem("loggedName");
+      window.location.href = "../index.html";
+    });
+  }
 }
 
 /** Carrega o componente de cabeçalho de seção (components/header.html), se a página tiver o placeholder. */
@@ -133,20 +156,10 @@ function configurarRolagemSuave() {
    LOGIN (index.html)
    ===================================================================== */
 
-const USUARIOS_SISTEMA = {
-  admin: {
-    senha: "admin123",
-    papel: "admin",
-    redirecionarPara: "pages/admin/dashboard.html",
-    nome: "Allan Gustavo",
-  },
-  usuario: {
-    senha: "1234",
-    papel: "user",
-    redirecionarPara: "pages/home.html",
-    nome: "Usuário",
-  },
-};
+// Credenciais fixas do administrador. O usuário comum pode entrar com
+// qualquer usuário e qualquer senha (login livre).
+const ADMIN_USUARIO = "Allan Gustavo";
+const ADMIN_SENHA = "17121985";
 
 let abaAtual = "admin";
 
@@ -158,9 +171,6 @@ function selecionarAba(aba) {
 
   document.getElementById("btn-text").textContent =
     aba === "admin" ? "Entrar como Administrador" : "Entrar como Usuário";
-
-  document.getElementById("hint-admin").style.display = aba === "admin" ? "block" : "none";
-  document.getElementById("hint-user").style.display = aba === "user" ? "block" : "none";
 
   document.getElementById("username").value = "";
   document.getElementById("password").value = "";
@@ -190,22 +200,27 @@ function realizarLogin() {
     return;
   }
 
-  const usuario = USUARIOS_SISTEMA[usuarioDigitado];
+  let usuario;
 
-  if (!usuario) {
-    mostrarToast("Usuário não encontrado", "error");
-    return;
-  }
+  if (abaAtual === "admin") {
+    // Login do administrador: usuário e senha fixos.
+    if (usuarioDigitado !== ADMIN_USUARIO || senhaDigitada !== ADMIN_SENHA) {
+      mostrarToast("Usuário ou senha de administrador incorretos.", "error");
+      return;
+    }
 
-  if (usuario.papel !== abaAtual) {
-    const abaCorreta = usuario.papel === "admin" ? "Administrador" : "Usuário";
-    mostrarToast(`Use a aba "${abaCorreta}" para este login`, "error");
-    return;
-  }
-
-  if (usuario.senha !== senhaDigitada) {
-    mostrarToast("Senha incorreta. Tente novamente.", "error");
-    return;
+    usuario = {
+      papel: "admin",
+      redirecionarPara: "pages/admin/dashboard.html",
+      nome: ADMIN_USUARIO,
+    };
+  } else {
+    // Login de usuário comum: aceita qualquer usuário e qualquer senha.
+    usuario = {
+      papel: "user",
+      redirecionarPara: "pages/home.html",
+      nome: usuarioDigitado,
+    };
   }
 
   if (lembrar) {
@@ -231,8 +246,6 @@ function realizarLogin() {
 }
 
 function inicializarLogin() {
-  document.getElementById("hint-admin").style.display = "block";
-
   if (localStorage.getItem("rememberMe") === "true") {
     const usuarioSalvo = localStorage.getItem("savedUsername");
     const abaSalva = localStorage.getItem("savedTab") || "admin";

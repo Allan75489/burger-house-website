@@ -1,9 +1,3 @@
-/* =====================================================================
-   PRODUTOS.JS — Responsável por: carregar produtos do JSON, renderizar
-   o cardápio dinamicamente e filtrar por categoria.
-   Depende de: utils.js (carregarJSON, formatarPreco), carrinho.js.
-   ===================================================================== */
-
 const CATEGORIAS_CARDAPIO = [
   { chave: "hamburguer", titulo: "🍔 Hambúrgueres" },
   { chave: "batata", titulo: "🍟 Batatas" },

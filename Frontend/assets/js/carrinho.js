@@ -1,10 +1,3 @@
-/* =====================================================================
-   CARRINHO.JS — Carrinho de compras persistido em localStorage.
-   Responsável por: adicionar produto, remover produto, atualizar
-   quantidade e calcular subtotal/total. Sem backend.
-   Compartilhado entre as páginas de cardápio e promoções.
-   ===================================================================== */
-
 const CARRINHO_STORAGE_KEY = "fireBurgerHouse.carrinho";
 
 /**

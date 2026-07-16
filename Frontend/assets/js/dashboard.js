@@ -1,10 +1,3 @@
-  /* =====================================================================
-    DASHBOARD.JS — Responsável por: gráficos, estatísticas e indicadores
-    exibidos em pages/admin/dashboard.html e pages/admin/relatorios.html.
-    Depende da biblioteca externa Chart.js (carregada via CDN no HTML).
-    ===================================================================== */
-
-  /** Renderiza o gráfico de vendas dos últimos 7 dias (Dashboard). */
   function renderizarGraficoVendasSemanais() {
     const canvas = document.getElementById("salesChart");
     if (!canvas) return;

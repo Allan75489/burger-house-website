@@ -1,9 +1,3 @@
-/* =====================================================================
-   PEDIDOS.JS — Responsável pela tabela de pedidos do painel
-   administrativo (pages/admin/pedidos.html): dados mockados (sem
-   backend), renderização da tabela e ações de ver/excluir.
-   ===================================================================== */
-
 const PEDIDOS_MOCK = [
   { id: "#1024", cliente: "João Silva", item: "Combo Fire Burger", valor: 39.9, status: "pendente" },
   { id: "#1025", cliente: "Maria Oliveira", item: "Duplo Bacon", valor: 44.9, status: "preparo" },

@@ -1,11 +1,5 @@
-/* =====================================================================
-   UTILS.JS — Funções utilitárias compartilhadas entre os módulos:
-   formatação de preço, notificações (toast) e carregamento de
-   componentes/JSON reutilizáveis.
-   ===================================================================== */
-
 /**
- * Formata um número como preço em Real (ex.: 25.9 -> "25,90").
+
  * @param {number} valor
  * @returns {string}
  */
